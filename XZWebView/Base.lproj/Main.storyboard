@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="XZWebView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qqR-Wz-gTA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nKg-Le-tYQ"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptt-xP-jVv">
+                                <rect key="frame" x="164" y="319" width="47" height="29"/>
+                                <state key="normal" title="下一页"/>
+                                <connections>
+                                    <segue destination="9X1-kF-a8Z" kind="presentation" id="98g-R7-mec"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ptt-xP-jVv" firstAttribute="centerX" secondItem="qqR-Wz-gTA" secondAttribute="centerX" id="HpZ-PG-GKm"/>
+                            <constraint firstItem="qqR-Wz-gTA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IN6-OW-gC9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ptt-xP-jVv" secondAttribute="bottom" constant="319" id="J8I-Dn-0I6"/>
+                            <constraint firstItem="qqR-Wz-gTA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a6b-9Y-bzR"/>
+                            <constraint firstItem="Ptt-xP-jVv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n97-93-gwL"/>
+                            <constraint firstItem="Ptt-xP-jVv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="tPv-ue-7ky"/>
+                            <constraint firstItem="qqR-Wz-gTA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vPO-FC-XKX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="qqR-Wz-gTA" id="dR1-QX-3pS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="2FO-pV-UCZ">
+            <objects>
+                <viewController storyboardIdentifier="XZSearchViewController" id="9X1-kF-a8Z" customClass="XZSearchViewController" customModule="XZWebView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2DL-XF-3Vd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn8-7W-kma">
+                                <rect key="frame" x="164" y="319" width="47" height="29"/>
+                                <state key="normal" title="上一页"/>
+                                <connections>
+                                    <action selector="dissmissController:" destination="9X1-kF-a8Z" eventType="touchUpInside" id="QaC-ri-org"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" restorationIdentifier="XZSearchBar" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-XV-nAV" customClass="XZSearchBar" customModule="XZWebView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kn8-7W-kma" firstAttribute="centerY" secondItem="2DL-XF-3Vd" secondAttribute="centerY" id="3tV-zi-SSa"/>
+                            <constraint firstItem="Bdd-XV-nAV" firstAttribute="top" secondItem="07z-8H-oF8" secondAttribute="top" id="63R-nf-9Fx"/>
+                            <constraint firstItem="Bdd-XV-nAV" firstAttribute="leading" secondItem="07z-8H-oF8" secondAttribute="leading" id="JSi-Ct-xRr"/>
+                            <constraint firstItem="Kn8-7W-kma" firstAttribute="leading" secondItem="07z-8H-oF8" secondAttribute="leading" constant="164" id="Qla-d8-cLD"/>
+                            <constraint firstItem="Kn8-7W-kma" firstAttribute="centerX" secondItem="Bdd-XV-nAV" secondAttribute="centerX" id="Vs6-2R-LbR"/>
+                            <constraint firstItem="Bdd-XV-nAV" firstAttribute="trailing" secondItem="07z-8H-oF8" secondAttribute="trailing" id="fS4-P4-Zte"/>
+                            <constraint firstItem="07z-8H-oF8" firstAttribute="bottom" secondItem="Kn8-7W-kma" secondAttribute="bottom" constant="319" id="hxL-xd-pVN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="07z-8H-oF8"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Bdd-XV-nAV" id="TZ7-I7-nsX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nd6-93-uS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="77"/>
+        </scene>
+    </scenes>
+</document>
